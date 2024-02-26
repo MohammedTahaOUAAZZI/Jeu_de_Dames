@@ -1,4 +1,4 @@
-import pygame 
+import pygame
 from checkers.constants import WIDTH, HEIGHT,SQUARE_SIZE,RED
 from checkers.game import Game
 
@@ -25,6 +25,7 @@ def main():
 
         if game.winner() != None:
             print(game.winner())
+            run = False
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -33,7 +34,7 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 row, col = get_row_col_from_mouse(pos)
-                game.select(row,col)
+                game.select(row, col)
                 
         game.update()
 

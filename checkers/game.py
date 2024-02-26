@@ -12,6 +12,7 @@ class Game:
         self.draw_valid_moves(self.valid_moves)
         pygame.display.update()
 
+
     def _init(self):
         self.selected = None
         self.board = Board()
@@ -65,3 +66,9 @@ class Game:
         else:
             self.turn = RED
 
+    def get_board(self):
+        return self.board
+
+    def ai_move(self, board):
+        self.board = board
+        self.change_turn()
