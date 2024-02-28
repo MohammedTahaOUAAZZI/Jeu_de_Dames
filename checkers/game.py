@@ -1,6 +1,9 @@
 import pygame
+from .constants import RED, WHITE, BLUE, SQUARE_SIZE
 from checkers.board import Board
-from .constants import RED, WHITE,BLUE, SQUARE_SIZE
+
+
+
 
 class Game:
     def __init__(self, win):
@@ -41,7 +44,7 @@ class Game:
             
         return False
 
-    def move(self, row, col):
+    def _move(self, row, col):
         piece = self.board.get_piece(row, col)
         if self.selected and piece == 0 and (row, col) in self.valid_moves:
             self.board.move(self.selected, row, col)
@@ -54,7 +57,7 @@ class Game:
 
         return True
     
-    def valid_valid_moves(self, moves):
+    def draw_valid_moves(self, moves):
         for move in moves:
             row, col = move
             pygame.draw.circle(self.win, BLUE, (col * SQUARE_SIZE + SQUARE_SIZE//2, row * SQUARE_SIZE + SQUARE_SIZE//2), 15)
